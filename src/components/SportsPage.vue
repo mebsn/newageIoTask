@@ -15,29 +15,30 @@ export default {
   name: "SportsPage",
   data() {
     return {
-      sportsData: this.$store.state.sports.sports,
+      sportsData: this.$store.state.sports.sports, // TODO: taking this data from helper function would've shorten the code an you would not have to declare data variable.
     };
   },
   async created() {
-    if (!window.localStorage.getItem("Sports")) {
+    if (!window.localStorage.getItem("Sports")) { // TODO: repetitive code which can be unified in store module.
       await this.$store.dispatch("LOAD_SPORTS");
     } else {
-      this.$store.state.sports.sports = JSON.parse(window.localStorage.getItem("Sports"));
+      // TODO: do you know the difference between assigning and referencing?
+      this.$store.state.sports.sports = JSON.parse(window.localStorage.getItem("Sports")); // TODO: you can use Vue helper functions to shorten this line of code
     }
   },
   methods: {
     async handleLogOut(){
      await this.$store.dispatch("LOGOUT");
-     this.$router.push({ path: "/" });
+     this.$router.push({ path: "/" }); // TODO: this action can go inside the dispatcher.
     },
     handleDetails(x, y) {
-      window.localStorage.setItem("dataToDisplay" , y )
+      window.localStorage.setItem("dataToDisplay" , y ); // TODO: why? you can filter the data in details page from store & you already have the id of the sport in route params.
       this.$router.push({  path: `/sports/${x}` });
     }
   },
   computed: {
     getSportsArray() {
-      return this.$store.state.sports.sports;
+      return this.$store.state.sports.sports; // TODO: must be a getter and better will be to use helper functions.
     },
   }
 };
@@ -64,16 +65,16 @@ li {
   margin-top:10px;
 }
 li:nth-child(odd) {
-    color: white;  
+    color: white;
     margin-right:80px;
     background-color:blueviolet;
-    
+
 }
 li:nth-child(odd):hover {
   background-color:rgb(175, 116, 231)
 }
 li:nth-child(even) {
-    color: black;   
+    color: black;
     margin-left:80px;
     background-color:teal;
 }

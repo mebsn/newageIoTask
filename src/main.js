@@ -8,12 +8,12 @@ import router from "./router";
 Vue.config.productionTip = false
 
 function getLocalToken() {
-  const token = window.localStorage.getItem("Token");
+  const token = window.localStorage.getItem("Token"); // TODO: maybe you could return inline function?
   return token;
 }
 
 
-axios.interceptors.request.use(
+axios.interceptors.request.use( // TODO: nice
   function (config) {
     config.headers.Authorization = `bearer ${getLocalToken()}`;
     return config;
@@ -27,7 +27,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response.status === 400) {
+    if (error.response.status === 400) { // TODO: very good, you could add also status check for Unauthorized requests' responses.
       alert("Incorrect Username or Password!");
     }
     return axios;

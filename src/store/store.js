@@ -7,7 +7,7 @@ import sports from "./modules/sports.js"
 
 
 export const store = new Vuex.Store({
-  modules: {
+  modules: { // TODO: nice that you separated the state into modules. Would be better if you add `namespaces` to modules.
     user,
     sports,
   },

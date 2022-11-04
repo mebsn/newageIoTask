@@ -11,14 +11,14 @@ export default {
   name: "SportsDetail",
   data() {
     return {
-      sportToDisplay: this.$store.state.sports.sports.filter(
-        (x) => x.id == localStorage.getItem("dataToDisplay")
+      sportToDisplay: this.$store.state.sports.sports.filter( // TODO: find fill be better.
+        (x) => x.id == localStorage.getItem("dataToDisplay") // TODO: you could filter the data by slug from url ad well.
       ),
     };
   },
   methods: {
     async handleLogOut() {
-      await this.$store.dispatch("LOGOUT");
+      await this.$store.dispatch("LOGOUT"); // TODO: repetitive logic can be a dispatcher or mixin
       this.$router.push({ path: "/" });
     },
     handleGoBack() {

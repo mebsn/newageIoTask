@@ -5,25 +5,24 @@ const sports = {
     sports: null,
   },
   mutations: {
-    SET_SPORTS(state, data) {
+    SET_TOKEN(state, data) {
       state.sports = data;
     },
-
   },
   actions: {
-    async LOAD_SPORTS({ commit },) {
-      const Sports = localStorage.getItem("Sports");
+    async LOAD_SPORTS({ commit },) { // TODO: extra comma, no linter/prettier.
+      const Sports = localStorage.getItem("Sports"); // TODO: This must be a getter
       if(!Sports) {
         try {
-          const res = await axios.get("api/sports-book/sports?culture=en");
+          const res = await axios.get("api/sports-book/sports?culture=en"); // TODO: you can pass query params in a different way as well.
           commit("SET_SPORTS", res.data);
-          window.localStorage.setItem("Sports", JSON.stringify(res.data));
+          window.localStorage.setItem("Sports", JSON.stringify(res.data)); // TODO: this line should also be in mutation
         }
         catch (err) {
-          throw new Error(err);
+          throw new Error(err); // TODO: you are throwing an exception again.
         }
       } else {
-          commit("SET_SPORTS" , Sports);   
+          commit("SET_SPORTS" , Sports);
       }
     },
   },

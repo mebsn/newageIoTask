@@ -29,17 +29,16 @@ export default {
       event.preventDefault();
       if( this.input.login == null || this.input.password == null){
         this.emptyCredentials = true;
-        var self = this;
+        var self = this; // TODO: why var?
         setTimeout(function () {
-          self.emptyCredentials = false;
+          self.emptyCredentials = false; // TODO: you can solve this in a better way.
         }, 3000);
-
       } else {
         try {
         await this.$store.dispatch("LOAD_TOKEN", this.input);
         this.$router.push({ path: "/sports" });
       } catch (err) {
-        throw new Error(err);
+        throw new Error(err); // TODO: in catch we do not throw another exception as catch is used to handle them.
       }
       }
     },
@@ -49,7 +48,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .container {
   width:100%;
   height:100vh;

@@ -13,7 +13,7 @@ export default new Router({
       path: "/sports",
       component: SportsPage,
       beforeEnter: (to, from, next) => {
-        if (!window.localStorage.getItem("Token")) {
+        if (!window.localStorage.getItem("Token")) { // TODO: this must be a getter
           next("/");
         } else {
           next();
