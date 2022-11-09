@@ -5,7 +5,7 @@ const sports = {
     sports: null,
   },
   mutations: {
-    SET_TOKEN(state, data) {
+    SET_SPORTS(state, data) {
       state.sports = data;
     },
   },
