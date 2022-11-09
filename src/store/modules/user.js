@@ -10,7 +10,7 @@ const user = {
     }
   },
   actions: {
-    async LOAD_SPORTS({ commit }, input) { // TODO: uppercase naming is a new convention?
+    async LOAD_TOKEN({ commit }, input) { // TODO: uppercase naming is a new convention?
         try {
           const res = await axios.post("api/auth/signin", input);
           commit("SET_TOKEN", res.data.token); // TODO: you could've moved the localStorage setting in mutations as well.
