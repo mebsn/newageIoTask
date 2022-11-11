@@ -19,7 +19,7 @@ export default {
     };
   },
    created() {
-    this.$store.dispatch("load_sports");
+    this.$store.dispatch("sports/load_sports");
     // if (!window.localStorage.getItem("Sports")) { // TODO: repetitive code which can be unified in store module.
     //    this.$store.dispatch("load_sports");
     // } else {
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     async handleLogOut(){
-     await this.$store.dispatch("logout");
+     await this.$store.dispatch("user/logout");
       // TODO: this action can go inside the dispatcher.
     },
     handleDetails(x, y) {

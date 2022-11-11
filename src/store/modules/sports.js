@@ -1,6 +1,7 @@
 import axios from "@/utilis/axiosInstance";
 
 const sports = {
+  namespaced: true,
   state: {
     sports: null,
   },
@@ -23,7 +24,7 @@ const sports = {
           alert(err) // TODO: you are throwing an exception again.
         }
       } else {
-          commit("SET_SPORTS" , Sports);
+          commit("SET_SPORTS" , JSON.parse(Sports));
       }
     },
   },

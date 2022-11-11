@@ -2,6 +2,7 @@ import axios from "@/utilis/axiosInstance";
 import router from '@/router'
 
 const user = {
+  namespaced: true,
   state: {
     token: null,
   },

@@ -36,7 +36,7 @@ export default {
         setTimeout(() => this.emptyCredentials = false, 3000);
       } else {
         try {
-        await this.$store.dispatch("load_token", this.input);
+        await this.$store.dispatch("user/load_token", this.input);
         this.$router.push({ path: "/sports" });
       } catch (err) {
         alert(err); // TODO: in catch we do not throw another exception as catch is used to handle them.
