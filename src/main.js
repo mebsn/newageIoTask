@@ -29,6 +29,8 @@ axios.interceptors.response.use(
   async (error) => {
     if (error.response.status === 400) { // TODO: very good, you could add also status check for Unauthorized requests' responses.
       alert("Incorrect Username or Password!");
+    } else if (error.response.status === 401) {
+      alert("Unauthorized request");
     }
     return axios;
   }
