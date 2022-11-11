@@ -19,7 +19,7 @@ export default {
   methods: {
     async handleLogOut() {
       await this.$store.dispatch("logout"); // TODO: repetitive logic can be a dispatcher or mixin
-      this.$router.push({ path: "/" });
+      // this.$router.push({ path: "/" });
     },
     handleGoBack() {
         this.$router.push({ path: "/sports" });

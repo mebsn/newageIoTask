@@ -29,7 +29,7 @@ export default {
   methods: {
     async handleLogOut(){
      await this.$store.dispatch("logout");
-     this.$router.push({ path: "/" }); // TODO: this action can go inside the dispatcher.
+      // TODO: this action can go inside the dispatcher.
     },
     handleDetails(x, y) {
       window.localStorage.setItem("dataToDisplay" , y ); // TODO: why? you can filter the data in details page from store & you already have the id of the sport in route params.
