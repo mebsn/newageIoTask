@@ -19,7 +19,7 @@ const sports = {
           window.localStorage.setItem("Sports", JSON.stringify(res.data)); // TODO: this line should also be in mutation
         }
         catch (err) {
-          throw new Error(err); // TODO: you are throwing an exception again.
+          alert(err) // TODO: you are throwing an exception again.
         }
       } else {
           commit("SET_SPORTS" , Sports);

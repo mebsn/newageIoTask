@@ -16,7 +16,7 @@ const user = {
           commit("SET_TOKEN", res.data.token); // TODO: you could've moved the localStorage setting in mutations as well.
           window.localStorage.setItem("Token", res.data.token);
         } catch (err) {
-          throw new Error(err); // TODO: you are still throwing error in catch.
+          alert(err); // TODO: you are still throwing error in catch.
         }
     },
     logout() {

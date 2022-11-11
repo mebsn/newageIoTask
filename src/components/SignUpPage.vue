@@ -38,7 +38,7 @@ export default {
         await this.$store.dispatch("load_token", this.input);
         this.$router.push({ path: "/sports" });
       } catch (err) {
-        throw new Error(err); // TODO: in catch we do not throw another exception as catch is used to handle them.
+        alert(err); // TODO: in catch we do not throw another exception as catch is used to handle them.
       }
       }
     },
