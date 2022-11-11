@@ -19,12 +19,13 @@ export default {
     };
   },
    created() {
-    if (!window.localStorage.getItem("Sports")) { // TODO: repetitive code which can be unified in store module.
-       this.$store.dispatch("load_sports");
-    } else {
-      // TODO: do you know the difference between assigning and referencing?
-      this.$store.state.sports.sports = JSON.parse(window.localStorage.getItem("Sports")); // TODO: you can use Vue helper functions to shorten this line of code
-    }
+    this.$store.dispatch("load_sports");
+    // if (!window.localStorage.getItem("Sports")) { // TODO: repetitive code which can be unified in store module.
+    //    this.$store.dispatch("load_sports");
+    // } else {
+    //   // TODO: do you know the difference between assigning and referencing?
+    //   this.$store.state.sports.sports = JSON.parse(window.localStorage.getItem("Sports")); // TODO: you can use Vue helper functions to shorten this line of code
+    // }
   },
   methods: {
     async handleLogOut(){

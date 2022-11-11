@@ -29,10 +29,11 @@ export default {
       event.preventDefault();
       if( this.input.login == null || this.input.password == null){
         this.emptyCredentials = true;
-        var self = this; // TODO: why var?
-        setTimeout(function () {
-          self.emptyCredentials = false; // TODO: you can solve this in a better way.
-        }, 3000);
+        // var self = this; // TODO: why var?
+        // setTimeout(function () {
+        //   self.emptyCredentials = false; // TODO: you can solve this in a better way.
+        // }, 3000);
+        setTimeout(() => this.emptyCredentials = false, 3000);
       } else {
         try {
         await this.$store.dispatch("load_token", this.input);
