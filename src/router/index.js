@@ -21,7 +21,7 @@ export default new Router({
       },
     },
     {
-      path: "/sports/:sport",
+      path: "/sports/:sport/id/:id",
       name: "details",
       component: SportDetail,
     },

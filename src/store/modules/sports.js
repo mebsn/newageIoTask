@@ -12,9 +12,10 @@ const sports = {
     },
   },
   actions: {
-    async load_sports({ commit }) { // TODO: extra comma, no linter/prettier.
-      const Sports = localStorage.getItem("Sports"); // TODO: This must be a getter
-      if(!Sports) {
+    async load_sports({ commit , getters}) { // TODO: extra comma, no linter/prettier.
+       // TODO: This must be a getter
+       
+      if(!getters.getSports) {
         try {
           const res = await axios.get("api/sports-book/sports", { params: { culture:"en" } }); // TODO: you can pass query params in a different way as well.
           commit("SET_SPORTS", res.data);
@@ -24,11 +25,15 @@ const sports = {
           alert(err) // TODO: you are throwing an exception again.
         }
       } else {
-          commit("SET_SPORTS" , JSON.parse(Sports));
+          commit("SET_SPORTS" , JSON.parse(getters.getSports));
       }
     },
   },
-  getters: {},
+  getters: {
+    getSports () {
+      return window.localStorage.getItem("Sports")
+    }
+  },
 };
 
 export default sports;

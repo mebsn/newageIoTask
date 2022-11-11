@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       sportToDisplay: this.$store.state.sports.sports.filter( // TODO: find fill be better.
-        (x) => x.id == localStorage.getItem("dataToDisplay") // TODO: you could filter the data by slug from url ad well.
+        (x) => x.id == this.$route.params.id // TODO: you could filter the data by slug from url ad well.
       ),
     };
   },

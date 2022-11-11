@@ -33,13 +33,13 @@ export default {
       // TODO: this action can go inside the dispatcher.
     },
     handleDetails(x, y) {
-      window.localStorage.setItem("dataToDisplay" , y ); // TODO: why? you can filter the data in details page from store & you already have the id of the sport in route params.
-      this.$router.push({  path: `/sports/${x}` });
+      // window.localStorage.setItem("dataToDisplay" , y ); // TODO: why? you can filter the data in details page from store & you already have the id of the sport in route params.
+      this.$router.push({  path: `/sports/${x}/id/${y}` });
     }
   },
   computed: {
     getSportsArray() {
-      return this.$store.state.sports.sports; // TODO: must be a getter and better will be to use helper functions.
+    return  JSON.parse(this.$store.getters['sports/getSports']);// TODO: must be a getter and better will be to use helper functions.
     },
   }
 };

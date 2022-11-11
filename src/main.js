@@ -7,15 +7,17 @@ import router from "./router";
 
 Vue.config.productionTip = false
 
-function getLocalToken() {
-  const token = window.localStorage.getItem("Token"); // TODO: maybe you could return inline function?
-  return token;
-}
+// function getLocalToken() {
+//   const token = window.localStorage.getItem("Token"); // TODO: maybe you could return inline function?
+//   return token;
+// }
 
+let token = window.localStorage.getItem("Token"); 
 
 axios.interceptors.request.use( // TODO: nice
   function (config) {
-    config.headers.Authorization = `bearer ${getLocalToken()}`;
+    // console.log(token)
+    config.headers.Authorization = `bearer ${token}`;
     return config;
   },
   function (error) {
