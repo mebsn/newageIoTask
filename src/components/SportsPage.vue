@@ -18,9 +18,9 @@ export default {
       sportsData: this.$store.state.sports.sports, // TODO: taking this data from helper function would've shorten the code an you would not have to declare data variable.
     };
   },
-  async created() {
+   created() {
     if (!window.localStorage.getItem("Sports")) { // TODO: repetitive code which can be unified in store module.
-      await this.$store.dispatch("LOAD_SPORTS");
+       this.$store.dispatch("load_sports");
     } else {
       // TODO: do you know the difference between assigning and referencing?
       this.$store.state.sports.sports = JSON.parse(window.localStorage.getItem("Sports")); // TODO: you can use Vue helper functions to shorten this line of code
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     async handleLogOut(){
-     await this.$store.dispatch("LOGOUT");
+     await this.$store.dispatch("logout");
      this.$router.push({ path: "/" }); // TODO: this action can go inside the dispatcher.
     },
     handleDetails(x, y) {

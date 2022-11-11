@@ -10,7 +10,7 @@ const sports = {
     },
   },
   actions: {
-    async LOAD_SPORTS({ commit },) { // TODO: extra comma, no linter/prettier.
+    async load_sports({ commit },) { // TODO: extra comma, no linter/prettier.
       const Sports = localStorage.getItem("Sports"); // TODO: This must be a getter
       if(!Sports) {
         try {
